@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <defs>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3F6FC"/>
+      <stop offset="100%" stop-color="#C9D4E8"/>
+    </linearGradient>
+    <linearGradient id="cardHeader" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4F8DFD"/>
+      <stop offset="100%" stop-color="#1B4FCF"/>
+    </linearGradient>
+    <linearGradient id="palmGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD2B0"/>
+      <stop offset="100%" stop-color="#E08A5B"/>
+    </linearGradient>
+    <linearGradient id="palmShine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0A2A6B" flood-opacity="0.30"/>
+    </filter>
+    <filter id="palmShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#7A3A12" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <!-- Card / ID -->
+  <g filter="url(#cardShadow)">
+    <rect x="20" y="14" width="56" height="38" rx="5"
+          fill="url(#cardGrad)" stroke="#8FA5C9" stroke-width="1.6"/>
+    <!-- Header band -->
+    <path d="M20 19 a5 5 0 0 1 5 -5 h46 a5 5 0 0 1 5 5 v8 H20 Z"
+          fill="url(#cardHeader)"/>
+    <!-- Avatar -->
+    <circle cx="32" cy="36" r="6" fill="#9FB3D6"/>
+    <circle cx="32" cy="34" r="2.6" fill="#5C7099"/>
+    <path d="M26.5 40.5 c1 -3 3 -4.5 5.5 -4.5 s4.5 1.5 5.5 4.5"
+          fill="#5C7099"/>
+    <!-- Detail lines -->
+    <rect x="44" y="32" width="24" height="2.6" rx="1.3" fill="#8FA5C9"/>
+    <rect x="44" y="38" width="18" height="2.6" rx="1.3" fill="#B7C4DC"/>
+    <rect x="44" y="44" width="12" height="2.6" rx="1.3" fill="#B7C4DC"/>
+    <!-- Shine -->
+    <rect x="20" y="14" width="56" height="12" rx="5"
+          fill="url(#palmShine)" opacity="0.6"/>
+  </g>
+
+  <!-- Open palm cradling the card -->
+  <g filter="url(#palmShadow)">
+    <!-- Palm base / wrist -->
+    <path d="M36 84 C30 84 26 80 26 74 L26 58
+             C26 54 30 52 34 54 L44 60 H60
+             C68 60 72 64 72 70 C72 76 68 84 60 84 Z"
+          fill="url(#palmGrad)" stroke="#B56A38" stroke-width="2.2"
+          stroke-linejoin="round"/>
+    <!-- Thumb (left, raised) -->
+    <path d="M26 58 C22 54 20 48 24 44 C28 40 34 42 36 48 L38 56"
+          fill="url(#palmGrad)" stroke="#B56A38" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Finger hints -->
+    <path d="M48 64 V74 M56 64 V76 M64 64 V74"
+          stroke="#B56A38" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+    <!-- Palm shine -->
+    <path d="M36 84 C30 84 26 80 26 74 L26 62
+             C34 68 44 70 54 68 C62 66 68 68 68 74
+             C66 80 62 84 56 84 Z"
+          fill="url(#palmShine)" opacity="0.5"/>
+  </g>
+</svg>

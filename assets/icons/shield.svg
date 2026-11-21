@@ -1,0 +1,179 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="spearMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#59616b"/>
+      <stop offset=".25" stop-color="#fff"/>
+      <stop offset=".5" stop-color="#a9b1bd"/>
+      <stop offset=".75" stop-color="#fff"/>
+      <stop offset="1" stop-color="#535b66"/>
+    </linearGradient>
+
+    <linearGradient id="shieldRed" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ff5656"/>
+      <stop offset=".3" stop-color="#dc0715"/>
+      <stop offset=".7" stop-color="#a4000b"/>
+      <stop offset="1" stop-color="#570008"/>
+    </linearGradient>
+
+    <linearGradient id="shieldBlack" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#050608"/>
+      <stop offset=".5" stop-color="#363a42"/>
+      <stop offset="1" stop-color="#050608"/>
+    </linearGradient>
+
+    <linearGradient id="whiteMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff"/>
+      <stop offset=".5" stop-color="#e1e5ec"/>
+      <stop offset="1" stop-color="#9299a4"/>
+    </linearGradient>
+
+    <radialGradient id="boss">
+      <stop stop-color="#fff"/>
+      <stop offset=".65" stop-color="#dce1e8"/>
+      <stop offset="1" stop-color="#828b98"/>
+    </radialGradient>
+
+    <filter id="shieldShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+
+    <filter id="metalShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+
+    <clipPath id="shieldClip">
+      <path d="M256 85
+               C335 125 378 155 378 224
+               C378 335 317 410 256 454
+               C195 410 134 335 134 224
+               C134 155 177 125 256 85Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse cx="256" cy="448" rx="130" ry="18"
+           fill="#000" opacity=".35"
+           filter="url(#shieldShadow)"/>
+
+  <!-- Crossed spears behind shield -->
+  <g stroke="#252a30" stroke-width="19"
+     stroke-linecap="round" fill="none"
+     opacity=".8" filter="url(#metalShadow)">
+    <path d="M107 416 L405 91"/>
+    <path d="M405 416 L107 91"/>
+  </g>
+
+  <g stroke="url(#spearMetal)" stroke-width="13"
+     stroke-linecap="round" fill="none">
+    <path d="M107 416 L405 91"/>
+    <path d="M405 416 L107 91"/>
+  </g>
+
+  <!-- Spearheads -->
+  <g fill="url(#whiteMetal)" stroke="#515963" stroke-width="4">
+    <path d="M405 57 C425 91 424 115 405 137
+             C386 115 385 91 405 57Z"/>
+    <path d="M107 57 C127 91 126 115 107 137
+             C88 115 87 91 107 57Z"/>
+  </g>
+
+  <!-- Spear metallic reflections -->
+  <g stroke="#fff" stroke-width="3" opacity=".85" fill="none">
+    <path d="M114 391 L394 94"/>
+    <path d="M398 391 L118 94"/>
+  </g>
+
+  <!-- Shield shadow -->
+  <path d="M256 85
+           C335 125 378 155 378 224
+           C378 335 317 410 256 454
+           C195 410 134 335 134 224
+           C134 155 177 125 256 85Z"
+        fill="#000" opacity=".55"
+        transform="translate(0 9)"
+        filter="url(#shieldShadow)"/>
+
+  <!-- Shield base -->
+  <path d="M256 85
+           C335 125 378 155 378 224
+           C378 335 317 410 256 454
+           C195 410 134 335 134 224
+           C134 155 177 125 256 85Z"
+        fill="url(#shieldRed)"
+        stroke="#050609" stroke-width="13"
+        stroke-linejoin="round"/>
+
+  <!-- Black side panels -->
+  <g clip-path="url(#shieldClip)">
+    <path d="M130 130
+             C174 155 198 210 195 274
+             C192 345 219 402 256 454
+             L120 460Z"
+          fill="url(#shieldBlack)"/>
+
+    <path d="M382 130
+             C338 155 314 210 317 274
+             C320 345 293 402 256 454
+             L392 460Z"
+          fill="url(#shieldBlack)"/>
+
+    <!-- Central red highlight -->
+    <path d="M256 93
+             C315 126 342 166 342 223
+             C342 308 303 385 256 429
+             C209 385 170 308 170 223
+             C170 166 197 126 256 93Z"
+          fill="url(#shieldRed)" opacity=".5"/>
+
+    <!-- Vertical reflective highlights -->
+    <path d="M185 160 Q210 128 238 116"
+          stroke="#fff" stroke-width="8"
+          opacity=".23" fill="none"/>
+  </g>
+
+  <!-- Outer shield outline -->
+  <path d="M256 85
+           C335 125 378 155 378 224
+           C378 335 317 410 256 454
+           C195 410 134 335 134 224
+           C134 155 177 125 256 85Z"
+        fill="none" stroke="url(#whiteMetal)"
+        stroke-width="5"/>
+
+  <!-- Central white Maasai-inspired spear/leaf -->
+  <path d="M256 111
+           C281 170 282 232 256 276
+           C230 232 231 170 256 111Z"
+        fill="url(#whiteMetal)"
+        stroke="#8a929c" stroke-width="2"/>
+
+  <path d="M256 293
+           C282 337 280 375 256 419
+           C232 375 230 337 256 293Z"
+        fill="url(#whiteMetal)"
+        stroke="#8a929c" stroke-width="2"/>
+
+  <!-- Central red line -->
+  <path d="M256 120 L256 270 M256 303 L256 409"
+        stroke="#b0000c" stroke-width="4"
+        opacity=".65"/>
+
+  <!-- Central white medallion -->
+  <circle cx="256" cy="285" r="29"
+          fill="#050608" opacity=".7"/>
+  <circle cx="256" cy="280" r="25"
+          fill="url(#boss)"
+          stroke="#343941" stroke-width="4"/>
+  <circle cx="249" cy="273" r="7"
+          fill="#fff" opacity=".8"/>
+
+  <!-- Final metallic shield rim -->
+  <path d="M256 85
+           C335 125 378 155 378 224
+           C378 335 317 410 256 454
+           C195 410 134 335 134 224
+           C134 155 177 125 256 85Z"
+        fill="none" stroke="#fff"
+        stroke-width="2" opacity=".7"/>
+</svg>

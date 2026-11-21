@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <defs>
+    <linearGradient id="ttBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C1C22"/>
+      <stop offset="100%" stop-color="#0A0A0D"/>
+    </linearGradient>
+    <linearGradient id="ttCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#69E6E6"/>
+      <stop offset="100%" stop-color="#00B8C4"/>
+    </linearGradient>
+    <linearGradient id="ttPink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF5A8A"/>
+      <stop offset="100%" stop-color="#E22D5C"/>
+    </linearGradient>
+    <linearGradient id="ttShine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ttShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="80" height="80" rx="22"
+        fill="url(#ttBg)" filter="url(#ttShadow)"/>
+  <rect x="8" y="8" width="80" height="40" rx="22"
+        fill="url(#ttShine)"/>
+  <!-- Cyan offset note -->
+  <path d="M56 22 h8 v30 c0 6 -4 10 -10 10 c-6 0 -10 -4 -10 -9.5"
+        fill="none" stroke="url(#ttCyan)" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"
+        transform="translate(-3,2)"/>
+  <!-- Pink offset note -->
+  <path d="M56 22 h8 v30 c0 6 -4 10 -10 10 c-6 0 -10 -4 -10 -9.5"
+        fill="none" stroke="url(#ttPink)" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"
+        transform="translate(3,-2)"/>
+  <!-- White main note -->
+  <path d="M56 22 h8 v30 c0 6 -4 10 -10 10 c-6 0 -10 -4 -10 -9.5"
+        fill="none" stroke="#ffffff" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="54" cy="62" r="3" fill="#ffffff" opacity="0"/>
+</svg>

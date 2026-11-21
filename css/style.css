@@ -1,0 +1,3274 @@
+
+/* =====================================
+   TALANTA SPORTS CITY
+   MAIN STYLESHEET
+===================================== */
+
+:root {
+  --green: #0b3829;
+  --dark: #071b16;
+  --gold: #c8a65b;
+  --white: #ffffff;
+  --light: #f4f5f1;
+  --text: #555e58;
+  --container: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container {
+  width: min(90%, var(--container));
+  margin: auto;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
+}
+
+/* HEADER */
+
+.header {
+  width: 100%;
+  height: 85px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(5, 24, 18, .85);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.logo small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-top: 5px;
+}
+
+.logo-mark {
+  width: 43px;
+  height: 43px;
+  border: 2px solid var(--gold);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: var(--gold);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.navigation a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .3s;
+}
+
+.navigation a:hover {
+  color: var(--gold);
+}
+
+.nav-button {
+  background: var(--gold);
+  padding: 12px 22px;
+  color: var(--dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 750px;
+  height: 95vh;
+  max-height: 900px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background:
+    url("../assets/images/stadium.jpg")
+    center/cover no-repeat,
+    var(--dark);
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 19, 13, .95) 0%,
+    rgba(3, 19, 13, .65) 50%,
+    rgba(3, 19, 13, .1) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px;
+}
+
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-player {
+  position: absolute;
+  left: -20%;
+  bottom: 0;
+  height: 60%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Keep hero text above the player */
+.hero-overlay > *:not(.hero-player) {
+  position: relative;
+  z-index: 20;
+}
+
+
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+  font-weight: 900;
+  max-width: 800px;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  color: #d6ddd8;
+  max-width: 530px;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 26px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.btn-primary:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--dark);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 25px;
+  left: 5%;
+  right: 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+/* FEATURED EVENT */
+
+.featured-event {
+  background: var(--green);
+  color: white;
+  padding: 45px 0;
+}
+
+.event-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.event-container h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.event-container h2 span {
+  color: var(--gold);
+  font-size: 19px;
+  margin: 0 10px;
+}
+
+.event-container p {
+  color: #c6d0ca;
+  font-size: 13px;
+}
+.badges{
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  border-bottom: 3px solid white;
+}
+.badges span {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+}
+.badges .vs {
+  width: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius:  20px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  font-weight: 900;
+  color: white;
+}
+
+.badges span img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.badges span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.8);
+  z-index: 2;
+}
+
+.event-action {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  white-space: nowrap;
+}
+
+.event-action strong {
+  color: var(--gold);
+  font-size: 19px;
+}
+
+/* STADIUM */
+
+.stadium-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.stadium-image {
+  height: 480px;
+  overflow: hidden;
+}
+
+.stadium-image img {
+  height: 100%;
+  transition: transform .6s;
+}
+
+.stadium-image:hover img {
+  transform: scale(1.04);
+}
+
+.stadium-info h2,
+.section-heading h2,
+.location h2 {
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  font-weight: 900;
+}
+
+.stadium-info p,
+.location p {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.stats {
+  display: flex;
+  gap: 35px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 23px 0;
+  margin-bottom: 25px;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats strong {
+  font-size: 19px;
+  color: var(--green);
+}
+
+.stats span {
+  color: #888;
+  font-size: 11px;
+}
+
+.text-link,
+.location a {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* HOSPITALITY */
+
+.hospitality {
+  background: var(--light);
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading h2 {
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.hospitality-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.hospitality-card {
+  background: white;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+  overflow: hidden;
+}
+
+.hospitality-card img {
+  height: 260px;
+  transition: transform .5s;
+}
+
+.hospitality-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 27px;
+}
+
+.card-content span {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.card-content h3 {
+  font-size: 27px;
+  margin: 8px 0;
+}
+
+.card-content p {
+  color: var(--text);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.card-content a {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 15px;
+}
+
+.gallery-grid img {
+  height: 300px;
+}
+
+/* TICKETS */
+
+.tickets {
+  background:
+    linear-gradient(rgba(4, 27, 18, .9), rgba(4, 27, 18, .9)),
+    url("../assets/images/stadium.jpg") center/cover;
+  text-align: center;
+  color: white;
+}
+
+.tickets-content h2 {
+  font-size: clamp(35px, 5vw, 55px);
+  margin-bottom: 15px;
+}
+
+.tickets-content p {
+  color: #d0d8d3;
+  margin-bottom: 30px;
+}
+
+/* LOCATION */
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.map-placeholder {
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: #e8ece6;
+}
+
+.map-placeholder iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: 0;
+}
+
+.map-placeholder .map-link {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 9px 12px;
+  background: var(--green);
+  color: #fff;
+  font-size: 11px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+/* FAQ */
+
+.faq {
+  background: var(--light);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq-list details {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 22px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.faq-list details p {
+  color: var(--text);
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+/* FOOTER */
+
+.footer {
+  background: var(--dark);
+  color: white;
+  padding: 65px 0 25px;
+  text-align: center;
+}
+
+.footer-logo {
+  justify-content: center;
+}
+
+.footer-content > p {
+  color: #aeb9b2;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: white;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  border-top: 1px solid #263a32;
+  padding-top: 22px;
+  font-size: 11px !important;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1000px) {
+  .navigation {
+    gap: 15px;
+  }
+
+  .navigation a {
+    font-size: 11px;
+  }
+
+  .nav-button {
+    padding: 10px 14px;
+  }
+
+  .stadium-grid {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 75px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 5%;
+    gap: 0;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .navigation a {
+    padding: 13px 0;
+    border-bottom: 1px solid #263a32;
+    font-size: 13px;
+  }
+
+  .nav-button {
+    margin-left: auto;
+  }
+
+  .hero {
+    min-height: 650px;
+    height: 85vh;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .event-container,
+  .event-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-container h2 {
+    font-size: 25px;
+  }
+
+  .stadium-grid,
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stadium-image {
+    height: 350px;
+  }
+
+  .hospitality-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-grid img {
+    height: 220px;
+  }
+
+  .gallery-grid img:first-child {
+    grid-column: span 2;
+  }
+
+  .section-padding {
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 13px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-button {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-bottom {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .stats {
+    gap: 18px;
+  }
+
+  .stats strong {
+    font-size: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid img:first-child {
+    grid-column: auto;
+  }
+
+  .gallery-grid img {
+    height: 230px;
+  }
+}
+
+
+/* JAVASCRIPT INTERACTION STYLES */
+
+.header.scrolled {
+  position: fixed;
+  background: rgba(5, 24, 18, .97);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   TALANTA SPORTS CITY - FOOTER RECREATION
+========================================= */
+
+.talanta-footer {
+  position: relative;
+  background: #070a0d;
+  color: #fff;
+  overflow: hidden;
+  padding: 42px 0 30px;
+}
+
+.footer-pattern {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 32%;
+  opacity: 0.12;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(92, 81, 89, 0.8) 0%, transparent 62%),
+    repeating-linear-gradient(58deg, transparent 0 34px, rgba(185, 185, 185, 0.9) 36px, transparent 42px, transparent 80px),
+    repeating-linear-gradient(-58deg, transparent 0 34px, rgba(185, 185, 185, 0.9) 36px, transparent 42px, transparent 80px);
+  mask-image: linear-gradient(to bottom, transparent, black 22%);
+}
+
+.footer-container {
+  width: min(94%, 1440px);
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-brand {
+  margin-bottom: 22px;
+}
+
+.footer-brand svg {
+  display: block;
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-brand h2 {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(34px, 3vw, 64px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px 60px;
+  max-width: 980px;
+  margin-top: 25px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.footer-column h4 {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.footer-column a,
+.footer-column span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.8;
+  transition: color .2s ease;
+}
+
+.footer-column a:hover {
+  color: #7de0ad;
+}
+
+.footer-trust {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  margin-top: 38px;
+  max-width: 980px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 70px;
+}
+
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  color: #111a17;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.trust-item strong {
+  font-size: 13px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 3px;
+  color: #fff;
+}
+
+.trust-item p {
+  color: rgba(255,255,255,0.78);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 980px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-socials a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.footer-socials a:hover {
+  background: #70d5a0;
+  color: #101a16;
+}
+
+@media (max-width: 850px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 35px;
+  }
+
+  .footer-trust {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-brand .footer-emblem {
+    width: 220px;
+  }
+
+  .footer-brand h2 {
+    font-size: 32px;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 18px;
+  }
+
+  .footer-column a,
+  .footer-column span {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   TALANTA SPORTS CITY - FOOTER DESIGN
+========================================== */
+
+.talanta-footer {
+  position: relative;
+  background: #100e11;
+  color: #fff;
+  min-height: 690px;
+  overflow: hidden;
+  padding: 50px 0 25px;
+}
+
+.footer-pattern {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 43%;
+  opacity: .12;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 100%, #5c5159 0%, transparent 70%),
+    repeating-linear-gradient(58deg, transparent 0 38px, #777 40px, transparent 47px 83px),
+    repeating-linear-gradient(-58deg, transparent 0 38px, #777 40px, transparent 47px 83px);
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  width: 93%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* BRAND AND EMBLEM */
+
+.footer-brand {
+  margin-bottom: 20px;
+}
+
+.footer-brand .footer-emblem {
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.footer-brand h2 {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* FOUR FOOTER COLUMNS */
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  margin-top: 25px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.footer-column h4 {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.footer-column a,
+.footer-column span {
+  font-size: 13px;
+  color: #f1eff1;
+  transition: color .2s;
+}
+
+.footer-column a:hover {
+  color: #70d5a0;
+}
+
+/* TRUST SECTION */
+
+.footer-trust {
+  display: grid;
+  grid-template-columns: 1.05fr 1.1fr 1fr;
+  gap: 35px;
+  margin-top: 42px;
+  padding: 0 5px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.trust-item img {
+  min-width: 42px;
+  height: 42px;
+  color: #101a16;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+
+.trust-item strong {
+  font-size: 13px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.trust-item p {
+  color: #e3dfe2;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* COPYRIGHT AND SOCIAL ICONS */
+
+.footer-bottom {
+  margin-top: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #e3dfe2;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.footer-socials a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.07);
+  color: white;
+  font-size: 23px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.footer-socials a:hover {
+  background: #70d5a0;
+  color: #101a16;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 35px;
+  }
+
+  .footer-trust {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .footer-container {
+    width: 90%;
+  }
+
+  .footer-brand .footer-emblem {
+    width: 230px;
+  }
+
+  .footer-brand h2 {
+    font-size: 30px;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+  }
+
+  .footer-column a,
+  .footer-column span {
+    font-size: 12px;
+  }
+
+  .footer-trust {
+    margin-top: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 35px;
+  }
+
+  .footer-socials {
+    flex-wrap: wrap;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 35px;
+  }
+
+  .footer-trust {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .talanta-footer {
+    padding-bottom: 35px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .footer-container {
+    width: 90%;
+  }
+
+  .footer-emblem {
+    width: 230px;
+    height: 75px;
+  }
+
+  .footer-brand h2 {
+    font-size: 30px;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+  }
+
+  .footer-column a,
+  .footer-column span {
+    font-size: 12px;
+  }
+
+  .footer-trust {
+    margin-top: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 35px;
+  }
+
+  .footer-socials {
+    flex-wrap: wrap;
+  }
+}
+
+
+
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.header-emblem {
+  width: 115px;
+  height: 48px;
+  border: none;
+  display: block;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.header .logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+}
+
+.header .logo-text small {
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .header-emblem {
+    width: 85px;
+    height: 36px;
+  }
+
+  .header .logo-text {
+    font-size: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* TALANTA HEADER EMBLEM */
+.header .logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.header-emblem {
+  display: block;
+  width: 125px;
+  height: 55px;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .header-emblem {
+    width: 95px;
+    height: 43px;
+  }
+}
+
+
+
+/* =================================
+   TALANTA HOSPITALITY EXPERIENCES
+================================= */
+
+.hospitality-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hospitality-card:hover {
+  transform: translateY(-7px);
+}
+
+.hospitality-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.hospitality-card .tier-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  padding: 7px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.coming-soon-ribbon {
+  position: absolute;
+  right: -20px;
+  bottom: 8px;
+  width: 150px;
+  height: 90px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.coming-soon-ribbon::before {
+  content: "";
+  position: absolute;
+  top: 39%;
+  left: -20%;
+  width: 145%;
+  height: 30%;
+  transform: rotate(-45deg);
+  background: #00c82b;
+  box-shadow: inset 0 1px 0 rgba(235, 255, 239, .95), inset 0 -1px 0 rgba(0, 100, 25, .6);
+  filter: drop-shadow(0 0 3px rgba(0, 255, 48, .95)) drop-shadow(0 0 8px rgba(0, 220, 42, .72));
+}
+
+.coming-soon-ribbon::after {
+  content: "COMING SOON";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 39%;
+  left: -20%;
+  width: 145%;
+  height: 30%;
+  transform: rotate(-45deg);
+  display: grid;
+  place-items: center;
+  color: #000000;
+  font-size: clamp(9px, 1vw, 1px);
+  font-weight: 1000;
+  letter-spacing: .0px;
+  white-space: nowrap;
+}
+
+.coming-soon-shine {
+  position: absolute;
+  top: 39%;
+  left: -20%;
+  width: 145%;
+  height: 30%;
+  z-index: 4;
+  overflow: hidden;
+  transform: rotate(-45deg);
+}
+
+.coming-soon-shine::after {
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: 0;
+  width: 24%;
+  height: 190%;
+  opacity: 0;
+  transform: translateX(720%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent);
+  animation: ribbon-shine 5s ease-in-out infinite;
+}
+
+@keyframes ribbon-shine {
+  0%, 2% {
+    opacity: 0;
+    transform: translateX(720%);
+  }
+  4% {
+    opacity: .9;
+  }
+  20% {
+    opacity: .9;
+    transform: translateX(-220%);
+  }
+  22%, 100% {
+    opacity: 0;
+    transform: translateX(-220%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-shine::after {
+    animation: none;
+  }
+}
+
+.hospitality-card .card-content {
+  padding: 22px;
+}
+
+.hospitality-card .tier-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hospitality-card h2 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.hospitality-card p {
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.hospitality-card a {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.hospitality-card a:hover {
+  opacity: .7;
+}
+
+/* GOLD */
+.gold-card {
+  background: #211A08;
+  border-color: #D4AF37;
+  color: #E8D6A5;
+}
+.gold-card .tier-badge {
+  background: #D4AF37;
+  color: #211A08;
+}
+.gold-card .tier-label,
+.gold-card h2,
+.gold-card a {
+  color: #D4AF37;
+}
+
+/* PLATINUM */
+.platinum-card {
+  background: #F1F2F4;
+  border-color: #C9D1D9;
+  color: #555B63;
+}
+.platinum-card .tier-badge {
+  background: #C9D1D9;
+  color: #252A30;
+}
+.platinum-card .tier-label,
+.platinum-card h2,
+.platinum-card a {
+  color: #737B84;
+}
+
+/* SKYBOX */
+.skybox-card {
+  background: #071D2D;
+  border-color: #38BDF8;
+  color: #C7DCEC;
+}
+.skybox-card .tier-badge {
+  background: #38BDF8;
+  color: #071D2D;
+}
+.skybox-card .tier-label,
+.skybox-card h2,
+.skybox-card a {
+  color: #38BDF8;
+}
+
+
+
+
+/* CINEMATIC TICKETS SLIDESHOW */
+.tickets {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.tickets-slideshow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.tickets-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.5s ease;
+}
+
+.tickets-slide.active {
+  opacity: 1;
+  animation: stadiumZoom 7s ease-out forwards;
+}
+
+@keyframes stadiumZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.16);
+  }
+}
+
+.tickets-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 61, 23, 0.247);
+  z-index: -1;
+}
+
+.tickets-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   TICKETING VIEW STYLES — merged from previous tickets.css
+============================================================ */
+/* TALANTA SPORTS CITY — TICKET BOOKING */
+:root {
+  --bg: #f4f5f1;
+  --panel: #ffffff;
+  --panel-alt: #f5f1ea;
+  --panel-dark: #071b16;
+  --dark: #071b16;
+  --white: #ffffff;
+  --green: #0b3829;
+  --green-deep: #041d15;
+  --gold: #c8a65b;
+  --gold-soft: #e5d1a1;
+  --text: #1b2a24;
+  --muted: #586a63;
+  --line: rgba(11, 56, 41, 0.14);
+  --blue: #0d6cc6;
+  --green-accent: #168b59;
+  --red: #c94b55;
+  --cyan: #4e9fa8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(90%, 1200px);
+  margin: auto;
+}
+
+.ticket-booking-page .header {
+  width: 100%;
+  height: 85px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(5, 24, 18, .95);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.header-emblem {
+  width: 125px;
+  height: 55px;
+  border: none;
+  display: block;
+  background: transparent;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.navigation a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .3s;
+}
+
+.navigation a:hover {
+  color: var(--gold);
+}
+
+.nav-button {
+  background: var(--gold);
+  padding: 12px 22px;
+  color: var(--dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.booking-page {
+  width: 96%;
+  max-width: 1900px;
+  margin: auto;
+  padding: 18px 0 65px;
+}
+
+.booking-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 15px;
+  align-items: stretch;
+}
+
+.stadium-panel,
+.ticket-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  min-width: 0;
+  box-shadow: 0 12px 30px rgba(7, 27, 22, 0.06);
+}
+
+.stadium-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.map-toolbar {
+  min-height: 67px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-alt);
+  flex-wrap: wrap;
+}
+
+.map-controls,
+.level-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-controls button {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: 1px solid rgba(11, 56, 41, 0.16);
+  color: var(--text);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.map-controls button:hover,
+.level-button:hover {
+  background: #ece8e1;
+}
+
+.level-button {
+  height: 36px;
+  padding: 0 12px;
+  background: white;
+  border: 1px solid rgba(11, 56, 41, 0.15);
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  border-radius: 4px;
+}
+
+.level-button.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.event-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.event-picker select {
+  max-width: 155px;
+  padding: 9px;
+  background: white;
+  border: 1px solid rgba(11, 56, 41, 0.16);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 11px;
+}
+
+.stadium-map-wrapper {
+  position: relative;
+  min-height: 560px;
+  height: min(67vw, 760px);
+  max-height: 760px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef0eb;
+}
+
+.stadium-map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  transition: transform .22s ease;
+  will-change: transform;
+}
+
+#seatingMap {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 760px;
+  object-fit: contain;
+}
+
+#seatingMap image {
+  pointer-events: none;
+}
+
+.stadium-section {
+  cursor: pointer;
+  stroke: #f4f7f5;
+  stroke-width: 1.7;
+  stroke-opacity: .85;
+  fill: #d7ecff;
+  fill-opacity: .28;
+  transition: fill-opacity .15s, stroke-width .15s, filter .15s;
+}
+
+.stadium-section.available {
+  fill: #77bbff;
+  fill-opacity: .22;
+}
+
+.stadium-section.taken {
+  fill: #d9b05a;
+  fill-opacity: .45;
+  cursor: not-allowed;
+}
+
+.stadium-section.sold {
+  fill: #c94b55;
+  fill-opacity: .42;
+  cursor: not-allowed;
+}
+
+.stadium-section.selected {
+  fill: #14a06d;
+  fill-opacity: .82;
+  stroke: #0b3829;
+  stroke-width: 3;
+}
+
+.stadium-section:hover {
+  fill-opacity: .78;
+  stroke: #fff;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 4px rgba(11, 56, 41, .45));
+}
+
+.section-map-label {
+  fill: #102438;
+  stroke: #fff;
+  stroke-width: 2px;
+  paint-order: stroke;
+  stroke-linejoin: round;
+  font-size: 10px;
+  font-weight: 900;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.map-legend {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  background: rgba(7, 27, 22, 0.92);
+  border: 1px solid rgba(200, 166, 91, .22);
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #e7edf5;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-dot.available {
+  background: #77bbff;
+}
+
+.legend-dot.selected {
+  background: #14a06d;
+}
+
+.legend-dot.taken {
+  background: #d9b05a;
+}
+
+.legend-dot.sold {
+  background: #c94b55;
+}
+
+.map-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 9px 11px;
+  background: rgba(7, 27, 22, 0.88);
+  border: 1px solid rgba(200, 166, 91, .18);
+  border-radius: 4px;
+  color: #d8e0e9;
+  font-size: 10px;
+}
+
+.map-instructions {
+  padding: 12px 15px;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.ticket-panel {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ticket-panel-heading h2 {
+  font-size: 21px;
+  margin-top: 4px;
+  color: var(--text);
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.quantity-control button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(11, 56, 41, .2);
+  background: transparent;
+  color: var(--text);
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.quantity-control strong {
+  min-width: 16px;
+  text-align: center;
+  color: var(--text);
+}
+
+.find-seats-button {
+  height: 47px;
+  width: 100%;
+  margin-bottom: 23px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.find-seats-button:hover {
+  background: #d5b86d;
+}
+
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.section-heading-row h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.section-heading-row p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.sort-controls {
+  display: flex;
+  padding: 3px;
+  background: #f0ede9;
+  border-radius: 4px;
+}
+
+.sort-button {
+  padding: 8px 9px;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+.sort-button.active {
+  background: var(--green);
+  color: white;
+}
+
+.section-list {
+  max-height: 430px;
+  min-height: 180px;
+  overflow-y: auto;
+  border-top: 1px solid var(--line);
+  scrollbar-width: thin;
+  scrollbar-color: #b9b0a2 transparent;
+}
+
+.section-item {
+  padding: 14px 9px;
+  border-bottom: 1px solid rgba(11, 56, 41, 0.12);
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.section-item:hover {
+  background: #f4efe8;
+}
+
+.section-item.active {
+  background: rgba(11, 56, 41, .04);
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+}
+
+.section-item.unavailable {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.section-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.section-item h4 {
+  font-size: 13px;
+}
+
+.section-item p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.section-price {
+  text-align: right;
+}
+
+.section-price small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-bottom: 3px;
+}
+
+.section-price strong {
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.section-item .seats-left {
+  color: var(--muted);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.booking-summary {
+  margin-top: auto;
+  padding: 16px;
+  background: #f6f3ee;
+  border: 1px solid rgba(11, 56, 41, .12);
+  border-radius: 5px;
+}
+
+.summary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.summary-heading h3 {
+  font-size: 14px;
+}
+
+.summary-step {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 11px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.summary-row strong {
+  color: var(--text);
+  text-align: right;
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(11, 56, 41, .14);
+  padding-top: 13px;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.summary-total strong {
+  font-size: 21px;
+  color: var(--green);
+}
+
+.continue-button {
+  width: 100%;
+  height: 46px;
+  margin-top: 17px;
+  background: var(--green);
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.continue-button:hover:not(:disabled) {
+  background: #072d21;
+}
+
+.continue-button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.continue-button span {
+  float: right;
+  font-size: 17px;
+  line-height: 12px;
+}
+
+.booking-note {
+  margin-top: 11px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.hospitality-booking {
+  padding-top: 65px;
+}
+
+.hospitality-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  margin-bottom: 10px;
+}
+
+.hospitality-heading h2 {
+  font-size: clamp(25px, 3vw, 36px);
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.hospitality-heading p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+
+
+
+
+
+.hospitality-card .card-content {
+  padding: 22px;
+}
+
+.hospitality-card .tier-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hospitality-card h2 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.hospitality-card p {
+  line-height: 1.6;
+  margin-bottom: 22px;
+  font-size: 13px;
+}
+
+.hospitality-card a {
+  display: inline-block;
+  font-weight: 700;
+  transition: opacity .2s ease;
+}
+
+.hospitality-card a:hover {
+  opacity: .7;
+}
+
+.gold-card {
+  background: #211A08;
+  border-color: #D4AF37;
+  color: #E8D6A5;
+}
+
+.gold-card .tier-badge {
+  background: #D4AF37;
+  color: #211A08;
+}
+
+.gold-card .tier-label,
+.gold-card h2,
+.gold-card a {
+  color: #D4AF37;
+}
+
+.platinum-card {
+  background: #F1F2F4;
+  border-color: #C9D1D9;
+  color: #555B63;
+}
+
+.platinum-card .tier-badge {
+  background: #C9D1D9;
+  color: #252A30;
+}
+
+.platinum-card .tier-label,
+.platinum-card h2,
+.platinum-card a {
+  color: #737B84;
+}
+
+.skybox-card {
+  background: #071D2D;
+  border-color: #38BDF8;
+  color: #C7DCEC;
+}
+
+.skybox-card .tier-badge {
+  background: #38BDF8;
+  color: #071D2D;
+}
+
+.skybox-card .tier-label,
+.skybox-card h2,
+.skybox-card a {
+  color: #38BDF8;
+}
+
+.talanta-footer {
+  position: relative;
+  background: #100e11;
+  color: #fff;
+  min-height: 690px;
+  overflow: hidden;
+  padding: 50px 0 25px;
+  margin-top: 35px;
+}
+
+.footer-pattern {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 43%;
+  opacity: .12;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 100%, #5c5159 0%, transparent 70%),
+    repeating-linear-gradient(58deg, transparent 0 38px, #777 40px, transparent 47px 83px),
+    repeating-linear-gradient(-58deg, transparent 0 38px, #777 40px, transparent 47px 83px);
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  width: 93%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-brand {
+  margin-bottom: 20px;
+}
+
+.footer-brand .footer-emblem {
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.footer-brand h2 {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: #fff;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  margin-top: 25px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.footer-column h4 {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.footer-column a,
+.footer-column span {
+  font-size: 13px;
+  color: #f1eff1;
+  transition: color .2s;
+}
+
+.footer-column a:hover {
+  color: #70d5a0;
+}
+
+.footer-trust {
+  display: grid;
+  grid-template-columns: 1.05fr 1.1fr 1fr;
+  gap: 35px;
+  margin-top: 42px;
+  padding: 0 5px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.trust-icon {
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  min-width: 42px;
+  height: 42px;
+  background: #19642c71;
+  color: #101a16;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+
+
+
+
+.trust-item strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+
+.trust-item p {
+  color: #e3dfe2;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  margin-top: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #e3dfe2;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.footer-socials a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .07);
+  color: white;
+  font-size: 23px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.footer-socials a:hover {
+  background: #70d5a0;
+  color: #101a16;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media(max-width:1100px) {
+  .booking-workspace {
+    grid-template-columns: minmax(0, 1fr) 350px;
+  }
+
+  .stadium-map-wrapper {
+    height: 620px;
+  }
+}
+
+@media(max-width:850px) {
+  .ticket-booking-page .header {
+    height: 75px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 5%;
+    gap: 0;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .navigation a {
+    padding: 13px 0;
+    border-bottom: 1px solid #263a32;
+    font-size: 13px;
+  }
+
+  .nav-button {
+    margin-left: auto;
+  }
+
+  .booking-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-panel {
+    min-height: 0;
+  }
+
+  .stadium-map-wrapper {
+    height: clamp(380px, 70vw, 620px);
+  }
+
+  .section-list {
+    max-height: 360px;
+  }
+
+  .booking-event-info {
+    display: none;
+  }
+
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 35px;
+  }
+
+  .footer-trust {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media(max-width:560px) {
+  .booking-page {
+    width: 98%;
+    padding-top: 8px;
+  }
+
+  .map-toolbar {
+    align-items: flex-start;
+  }
+
+  .map-controls {
+    order: 1;
+  }
+
+  .event-picker {
+    margin-left: auto;
+  }
+
+  .level-controls {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .level-button {
+    padding: 0 3px;
+    font-size: 9px;
+  }
+
+  .stadium-map-wrapper {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .map-legend {
+    left: 7px;
+    bottom: 7px;
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .map-legend span {
+    font-size: 8px;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .map-hint {
+    right: 7px;
+    bottom: 42px;
+    font-size: 8px;
+  }
+
+  .ticket-panel {
+    padding: 13px;
+  }
+
+  .hospitality-options {
+    grid-template-columns: 1fr;
+  }
+
+  .hospitality-card {
+    min-height: 170px;
+  }
+
+  .footer-container {
+    width: 90%;
+  }
+
+  .footer-brand .footer-emblem {
+    width: 230px;
+  }
+
+  .footer-brand h2 {
+    font-size: 30px;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 35px;
+  }
+
+  .footer-socials {
+    flex-wrap: wrap;
+  }
+}
+
+.hospitality-option.chosen {
+  outline: 3px solid rgba(255, 255, 255, .9);
+  outline-offset: 3px;
+}
+/* ==========================================
+   HEADER EMBLEM SIZING
+========================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.header-emblem {
+  display: block;
+  width: 155px;
+  height: 58px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .header-emblem {
+    width: 125px;
+    height: 48px;
+  }
+}/* HEADER EMBLEM — FINAL SIZE FIX */
+.header .logo {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header .header-emblem {
+  width: 85px !important;
+  height: 38px !important;
+  max-width: 85px;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .header .header-emblem {
+    width: 65px !important;
+    height: 32px !important;
+    max-width: 65px;
+  }
+}
+
+/* ==========================================================
+   TALANTA M-PESA CHECKOUT
+   ========================================================== */
+
+.mpesa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .82);
+  backdrop-filter: blur(8px);
+  animation: mpesaFadeIn .25s ease;
+}
+
+.mpesa-modal {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  border: 1px solid rgba(190, 0, 0, .35);
+  border-radius: 18px;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 25px 90px rgba(0, 0, 0, .65);
+  animation: mpesaSlideIn .3s ease;
+}
+
+.mpesa-close {
+  position: absolute;
+  top: 14px;
+  right: 17px;
+  border: 0;
+  background: transparent;
+  color: #aaa;
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.mpesa-close:hover {
+  color: #fff;
+}
+
+.mpesa-logo {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 9px 15px;
+  border-radius: 7px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.mpesa-modal h2 {
+  margin: 0 0 9px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.mpesa-subtitle {
+  margin-bottom: 24px;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mpesa-order {
+  display: grid;
+  gap: 13px;
+  margin-bottom: 24px;
+  padding: 19px;
+  border: 1px solid #303030;
+  border-radius: 12px;
+  background: #191919;
+}
+
+.mpesa-order > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.mpesa-order span {
+  color: #aaa;
+}
+
+.mpesa-order strong {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.mpesa-order .mpesa-total {
+  margin-top: 7px;
+  padding-top: 14px;
+  border-top: 1px solid #383838;
+  font-size: 16px;
+}
+
+.mpesa-total strong {
+  color: #22c55e;
+  font-size: 21px;
+}
+
+#mpesaPaymentForm {
+  display: grid;
+  gap: 12px;
+}
+
+#mpesaPaymentForm label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#mpesaPhone {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 15px;
+  border: 1px solid #444;
+  border-radius: 9px;
+  outline: none;
+  background: #1b1b1b;
+  color: #fff;
+  font: inherit;
+}
+
+#mpesaPhone:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, .13);
+}
+
+#mpesaPayButton {
+  min-height: 51px;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 9px;
+  background: #168c43;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+#mpesaPayButton:hover:not(:disabled) {
+  background: #20aa55;
+  transform: translateY(-1px);
+}
+
+#mpesaPayButton:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+#mpesaStatus {
+  min-height: 20px;
+  margin: 5px 0 0;
+  color: #ddd;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.mpesa-security {
+  margin: 18px 0 0;
+  color: #777;
+  font-size: 11px;
+  text-align: center;
+}
+
+@keyframes mpesaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mpesaSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .mpesa-modal {
+    padding: 25px 19px;
+  }
+
+  .mpesa-modal h2 {
+    font-size: 22px;
+  }
+
+  .mpesa-order {
+    padding: 15px;
+  }
+}
+
+
+/* ============================================================
+   TALANTA REFINEMENTS — EMBLEM, NAVIGATION AND FOOTER
+   ============================================================ */
+.nav-container .logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+.header-emblem {
+  display: block;
+  width: 92px;
+  height: 38px;
+  max-width: 100%;
+  object-fit: contain;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+.footer-brand > .footer-emblem,
+.footer-brand .footer-emblem {
+  display: block;
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px;
+}
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: grid;
+  place-items: center;
+}
+.coming-soon-ribbon {
+  font-size: clamp(9px, 1vw, 14px);
+}
+@media (max-width: 1000px) {
+  .header-emblem { width: 76px; height: 32px; }
+}
+@media (max-width: 768px) {
+  .header-emblem { width: 68px; height: 30px; }
+  .nav-container { gap: 12px; }
+  .nav-container .logo { margin-right: auto; }
+}
+@media (max-width: 500px) {
+  .footer-brand > .footer-emblem,
+  .footer-brand .footer-emblem { width: 145px; }
+}
+
+
+/* ============================================================
+   TALANTA THEME SWITCH — LIGHT / DARK
+   Theme preference is applied through data-theme on html/body.
+============================================================ */
+:root,
+html[data-theme="light"],
+body[data-theme="light"] {
+  color-scheme: light;
+  --theme-page: #f4f5f1;
+  --theme-surface: #ffffff;
+  --theme-surface-alt: #edf1ed;
+  --theme-text: #17251e;
+  --theme-muted: #586a63;
+  --theme-border: rgba(11, 56, 41, .15);
+  --theme-input: #ffffff;
+}
+
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b1511;
+  --panel: #14221b;
+  --panel-alt: #1b2b22;
+  --panel-dark: #071b16;
+  --dark: #eaf1eb;
+  --white: #f5f8f5;
+  --light: #17251e;
+  --text: #e5eee7;
+  --muted: #a8b8ad;
+  --line: rgba(220, 238, 224, .14);
+  --theme-page: #0b1511;
+  --theme-surface: #14221b;
+  --theme-surface-alt: #1b2b22;
+  --theme-text: #e5eee7;
+  --theme-muted: #a8b8ad;
+  --theme-border: rgba(220, 238, 224, .14);
+  --theme-input: #101c16;
+}
+
+html[data-theme="dark"] body,
+body[data-theme="dark"] {
+  background: var(--theme-page);
+  color: var(--theme-text);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(200, 166, 91, .55);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gold);
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.theme-toggle:hover {
+  background: var(--gold);
+  color: #071b16;
+  transform: rotate(12deg);
+}
+
+/* Shared page surfaces */
+html[data-theme="dark"] #app,
+body[data-theme="dark"] #app {
+  background-color: var(--theme-page);
+  color: var(--theme-text);
+}
+html[data-theme="dark"] #app .container,
+body[data-theme="dark"] #app .container {
+  color: inherit;
+}
+html[data-theme="dark"] #app .about,
+html[data-theme="dark"] #app .stadium,
+html[data-theme="dark"] #app .events,
+html[data-theme="dark"] #app .hospitality,
+html[data-theme="dark"] #app .gallery,
+html[data-theme="dark"] #app .location,
+html[data-theme="dark"] #app .faq,
+html[data-theme="dark"] #app .ticket-section,
+html[data-theme="dark"] #app .ticketing-section,
+body[data-theme="dark"] #app .about,
+body[data-theme="dark"] #app .stadium,
+body[data-theme="dark"] #app .events,
+body[data-theme="dark"] #app .hospitality,
+body[data-theme="dark"] #app .gallery,
+body[data-theme="dark"] #app .location,
+body[data-theme="dark"] #app .faq,
+body[data-theme="dark"] #app .ticket-section,
+body[data-theme="dark"] #app .ticketing-section {
+  background-color: var(--theme-page);
+  color: var(--theme-text);
+}
+html[data-theme="dark"] #app h1,
+html[data-theme="dark"] #app h2,
+html[data-theme="dark"] #app h3,
+html[data-theme="dark"] #app h4,
+html[data-theme="dark"] #app p,
+html[data-theme="dark"] #app li,
+html[data-theme="dark"] #app label,
+body[data-theme="dark"] #app h1,
+body[data-theme="dark"] #app h2,
+body[data-theme="dark"] #app h3,
+body[data-theme="dark"] #app h4,
+body[data-theme="dark"] #app p,
+body[data-theme="dark"] #app li,
+body[data-theme="dark"] #app label {
+  color: inherit;
+}
+html[data-theme="dark"] #app .card,
+html[data-theme="dark"] #app .event-card,
+html[data-theme="dark"] #app .hospitality-card,
+html[data-theme="dark"] #app .gallery-item,
+html[data-theme="dark"] #app .ticket-card,
+html[data-theme="dark"] #app .booking-card,
+html[data-theme="dark"] #app .summary-card,
+html[data-theme="dark"] #app .section-card,
+body[data-theme="dark"] #app .card,
+body[data-theme="dark"] #app .event-card,
+body[data-theme="dark"] #app .hospitality-card,
+body[data-theme="dark"] #app .gallery-item,
+body[data-theme="dark"] #app .ticket-card,
+body[data-theme="dark"] #app .booking-card,
+body[data-theme="dark"] #app .summary-card,
+body[data-theme="dark"] #app .section-card {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+html[data-theme="dark"] #app input,
+html[data-theme="dark"] #app select,
+html[data-theme="dark"] #app textarea,
+body[data-theme="dark"] #app input,
+body[data-theme="dark"] #app select,
+body[data-theme="dark"] #app textarea {
+  background: var(--theme-input);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+html[data-theme="dark"] #app input::placeholder,
+html[data-theme="dark"] #app textarea::placeholder,
+body[data-theme="dark"] #app input::placeholder,
+body[data-theme="dark"] #app textarea::placeholder {
+  color: var(--theme-muted);
+}
+html[data-theme="dark"] #app .muted,
+html[data-theme="dark"] #app .text-muted,
+body[data-theme="dark"] #app .muted,
+body[data-theme="dark"] #app .text-muted {
+  color: var(--theme-muted);
+}
+
+/* Ticketing view uses its own design tokens; map them to the active theme. */
+html[data-theme="dark"] body.ticket-booking-page,
+body[data-theme="dark"].ticket-booking-page {
+  background: var(--theme-page);
+  color: var(--theme-text);
+}
+html[data-theme="dark"] body.ticket-booking-page .ticket-layout,
+html[data-theme="dark"] body.ticket-booking-page .ticket-panel,
+html[data-theme="dark"] body.ticket-booking-page .booking-panel,
+html[data-theme="dark"] body.ticket-booking-page .stadium-panel,
+body[data-theme="dark"].ticket-booking-page .ticket-layout,
+body[data-theme="dark"].ticket-booking-page .ticket-panel,
+body[data-theme="dark"].ticket-booking-page .booking-panel,
+body[data-theme="dark"].ticket-booking-page .stadium-panel {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+}
