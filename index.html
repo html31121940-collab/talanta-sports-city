@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09090d">
+  <meta name="theme-color" content="#080b10">
   <meta name="description" content="Discover Talanta Sports City, explore the stadium and choose your match-day seats.">
   <title>Talanta Sports City</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Talanta Sports City | Experience the Game">
+  <meta property="og:description" content="Discover Talanta Sports City. Explore the experience, events and tickets.">
+  <meta property="og:url" content="https://talanta-sportscity.netlify.app/">
+  <meta property="og:image" content="https://talanta-sportscity.netlify.app/assets/images/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Talanta Sports City | Experience the Game">
+  <meta name="twitter:description" content="Discover Talanta Sports City. Explore the experience, events and tickets.">
+  <meta name="twitter:image" content="https://talanta-sportscity.netlify.app/assets/images/social-preview.jpg">
   <link rel="icon" type="image/svg+xml" href="assets/icons/shield.svg">
+  <script>
+    (function () {
+      var selectedTheme = "dark";
+      try {
+        var savedTheme = localStorage.getItem("talanta-theme-v2");
+        if (savedTheme === "dark" || savedTheme === "light") {
+          selectedTheme = savedTheme;
+        }
+      } catch (error) {
+        // Keep the dark default when storage is unavailable.y
+      }
+
+      document.documentElement.setAttribute("data-theme", selectedTheme);
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute("content", selectedTheme === "dark" ? "#080b10" : "#f4f5f1");
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
+
+
   <div id="app" aria-live="polite"></div>
   <noscript>SERVER DOWN !!!! PLEASE RELOAD OR TRY AGAIN LATER...</noscript>
   <script src="js/script.js"></script>
 </body>
+
 </html>

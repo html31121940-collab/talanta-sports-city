@@ -13,7 +13,7 @@ const { initiateSTKPush, querySTKPush } = require("./stkpush");
 const { ENVIRONMENT } = require("./daraja");
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 3001;
 
 const CALLBACK_TOKEN = String(process.env.DARAJA_CALLBACK_TOKEN || process.env.CALLBACK_TOKEN || "");
 const PAYMENT_OPS_TOKEN = String(process.env.PAYMENT_OPS_TOKEN || "");
@@ -26,6 +26,38 @@ const MAX_CALLBACK_ATTEMPTS = 12;
 const requestWindows = new Map();
 
 app.disable("x-powered-by");
+
+
+
+// Allow the local Talanta frontend to access the backend.
+const ALLOWED_ORIGINS = new Set([
+  "http://127.0.0.1:5500"
+]);
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, X-Payment-Token"
+    );
+  }
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
+
+
+
+
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: false, limit: "16kb" }));
 
@@ -54,7 +86,7 @@ function normalizeKenyanPhone(value) {
   return /^254[17]\d{8}$/.test(phone) ? phone : null;
 }
 
-function rateLimit({ windowMs = 60000, maxRequests = 10 } = {}) {
+function rateLimit({ windowMs = 6 * 60 * 1000, maxRequests = 4 } = {}) {
   return function (req, res, next) {
     const now = Date.now();
     const key = String(req.ip || req.socket.remoteAddress || "unknown");
@@ -105,7 +137,7 @@ function calculateOrder(body) {
 
   if (ticketType === "SECTION") {
     if (/^1(0[1-9]|1[0-9]|2[0-8])$/.test(sectionId)) {
-      unitPrice = 2;
+      unitPrice = 2500;
     } else if (/^2(0[1-9]|1[0-9]|20)$/.test(sectionId)) {
       unitPrice = 5000;
     } else if (/^4(0[1-9]|[12][0-9]|3[0-5])$/.test(sectionId)) {
@@ -850,7 +882,7 @@ app.post(
         }
 
         const [existing] = await pool.execute(
-          `SELECT id
+          `SELECT id, result_code, processing_status
            FROM mpesa_callbacks
            WHERE checkout_request_id = ?
            LIMIT 1`,
@@ -860,6 +892,35 @@ app.post(
         if (!existing.length) throw insertError;
 
         callbackId = existing[0].id;
+
+        // Safaricom may deliver duplicate callbacks. A later success
+        // callback must replace an earlier failure for the same checkout,
+        // while a success must not be overwritten by a later failure replay.
+        if (
+          resultCode === 0 &&
+          Number(existing[0].result_code) !== 0
+        ) {
+          await pool.execute(
+            `UPDATE mpesa_callbacks
+             SET merchant_request_id = ?,
+                 result_code = ?,
+                 result_description = ?,
+                 callback_payload = ?,
+                 processing_status = 'RECEIVED',
+                 attempt_count = 0,
+                 next_attempt_at = NULL,
+                 locked_until = NULL,
+                 last_error = NULL
+             WHERE id = ?`,
+            [
+              stkCallback.MerchantRequestID || null,
+              resultCode,
+              String(stkCallback.ResultDesc || "").slice(0, 255),
+              JSON.stringify(req.body),
+              callbackId
+            ]
+          );
+        }
       }
 
       // Acknowledge only after the callback has been durably stored.
